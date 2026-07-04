@@ -1,5 +1,5 @@
 /* ===================================================================
-   ВИЖЕН — landing styles
+   VISION — landing styles
    Editorial layout with sharp-edged, dialog-window chrome as accents.
    Deep, saturated blue — not pastel, not rounded.
 =================================================================== */
@@ -104,16 +104,7 @@ h1, h2, h3, p, dl{ margin: 0; }
   color: var(--ink);
   margin-right: auto;
 }
-.brand-badge{
-  width: 28px; height: 28px;
-  border-radius: var(--radius-sm);
-  background: var(--blue-royal);
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800;
-  font-family: var(--font-serif);
-}
-.brand-name{ letter-spacing: .04em; }
+.brand-name{ font-family: var(--font-serif); letter-spacing: .04em; }
 
 .nav{ display: flex; align-items: center; gap: 28px; }
 .nav a{
@@ -197,7 +188,6 @@ h1, h2, h3, p, dl{ margin: 0; }
 .win-titlebar{
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   padding: 9px 12px;
   background: var(--blue-royal);
@@ -223,16 +213,6 @@ h1, h2, h3, p, dl{ margin: 0; }
   font-style: normal;
   min-width: 18px;
 }
-.win-controls{ display: flex; gap: 6px; flex-shrink: 0; }
-.win-btn{
-  width: 20px; height: 18px;
-  border-radius: 1px;
-  background: rgba(255,255,255,.14);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px;
-  line-height: 1;
-}
-.win-btn--close:hover{ background: #ff3b4a; }
 
 .win-body{ padding: 28px; }
 
@@ -507,7 +487,6 @@ h1, h2, h3, p, dl{ margin: 0; }
   gap: 16px;
   flex-wrap: wrap;
 }
-.footer .brand-badge{ background: var(--blue-electric); }
 .footer .brand-name{ color: #fff; }
 .footer-credit{ font-size: 14px; opacity: .85; }
 .footer-copy{ margin-left: auto; font-size: 13px; opacity: .6; }

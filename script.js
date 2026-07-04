@@ -1,4 +1,4 @@
-// ВИЖЕН — landing interactions: mobile nav, FAQ accordion, CTA modal placeholder.
+// VISION — landing interactions: mobile nav, FAQ accordion, CTA modal placeholder.
 
 document.addEventListener('DOMContentLoaded', () => {
   // Mobile nav toggle
@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-cta]').forEach(btn => {
     btn.addEventListener('click', openModal);
   });
-  document.getElementById('modalClose').addEventListener('click', closeModal);
   document.getElementById('modalOk').addEventListener('click', closeModal);
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeModal();
