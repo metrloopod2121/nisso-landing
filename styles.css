@@ -28,7 +28,6 @@
 
   --font-body: 'IBM Plex Mono', 'Tahoma', 'Verdana', 'Manrope', monospace;
   --font-serif: 'Italiana', 'Playfair Display', 'Georgia', serif;
-  --font-pixel: 'VT323', monospace;
 }
 
 *, *::before, *::after{ box-sizing: border-box; }
@@ -214,6 +213,42 @@ h1, h2, h3, p, dl{ margin: 0; }
 
 .win-body{ padding: 28px; }
 
+/* window interactivity: minimize / maximize / close (shake) */
+.win-window.is-minimized .win-body{ display: none; }
+
+.win-window.is-maximized{
+  position: fixed;
+  inset: 24px;
+  z-index: 400;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0 !important;
+  overflow: auto;
+}
+.win-window.is-maximized .win-body,
+.win-window.is-maximized .win-body--hero{
+  height: 100%;
+}
+
+.win-maximize-backdrop{
+  position: fixed;
+  inset: 0;
+  z-index: 399;
+  background: rgba(2,4,15,.5);
+  display: none;
+}
+.win-maximize-backdrop.is-open{ display: block; }
+
+@keyframes win-shake{
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-8px); }
+  40%, 60% { transform: translateX(8px); }
+}
+.win-window.is-shaking{ animation: win-shake .4s ease; }
+
 /* ===================== HERO ===================== */
 .hero{ padding: 40px 0 0; }
 .win-window--hero{ border-radius: var(--radius-win) var(--radius-win) var(--radius-sm) var(--radius-sm); }
@@ -334,8 +369,7 @@ h1, h2, h3, p, dl{ margin: 0; }
   color: var(--ink-soft);
 }
 .module .win-titlebar .win-icon{
-  font-family: var(--font-pixel);
-  font-size: 15px;
+  font-size: 13px;
   min-width: 22px;
 }
 
@@ -486,7 +520,7 @@ h1, h2, h3, p, dl{ margin: 0; }
 .xp-taskbar{
   position: fixed;
   left: 0; right: 0; bottom: 0;
-  z-index: 300;
+  z-index: 450;
   height: var(--taskbar-h);
   display: flex;
   align-items: stretch;
@@ -568,7 +602,7 @@ h1, h2, h3, p, dl{ margin: 0; }
   position: fixed;
   left: 3px;
   bottom: calc(var(--taskbar-h) + 4px);
-  z-index: 300;
+  z-index: 450;
   width: 240px;
   background: var(--paper);
   border: 1px solid var(--blue-void);
