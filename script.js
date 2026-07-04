@@ -52,17 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', setActiveTask, { passive: true });
   setActiveTask();
 
-  // Window controls: minimize / maximize / close (shake — content windows don't actually close)
-  const maximizeBackdrop = document.getElementById('maximizeBackdrop');
-  let maximizedWin = null;
-
-  const restoreMaximized = () => {
-    if (!maximizedWin) return;
-    maximizedWin.classList.remove('is-maximized');
-    maximizedWin = null;
-    maximizeBackdrop.classList.remove('is-open');
-  };
-
+  // Window controls: minimize / restore / close (shake — content windows don't actually close)
   document.querySelectorAll('.win-window:not(.win-window--modal)').forEach(win => {
     const minBtn = win.querySelector('.win-btn--min');
     const maxBtn = win.querySelector('.win-btn--max');
@@ -70,21 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (minBtn) {
       minBtn.addEventListener('click', () => {
-        win.classList.toggle('is-minimized');
+        win.classList.add('is-minimized');
       });
     }
 
     if (maxBtn) {
       maxBtn.addEventListener('click', () => {
-        if (win.classList.contains('is-maximized')) {
-          restoreMaximized();
-        } else {
-          if (maximizedWin) restoreMaximized();
-          win.classList.remove('is-minimized');
-          win.classList.add('is-maximized');
-          maximizedWin = win;
-          maximizeBackdrop.classList.add('is-open');
-        }
+        win.classList.remove('is-minimized');
       });
     }
 
@@ -94,11 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
         win.addEventListener('animationend', () => win.classList.remove('is-shaking'), { once: true });
       });
     }
-  });
-
-  maximizeBackdrop.addEventListener('click', restoreMaximized);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') restoreMaximized();
   });
 
   // Modal close button actually closes the modal
