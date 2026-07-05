@@ -79,23 +79,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Cascading duplicate VISION windows: the original is already visible, clones pop in
-  // behind/around it one by one, then the whole group shakes together.
-  const brandWindow = document.querySelector('.hero-popup--brand .win-window');
+  // behind/around it one by one. Once the cascade settles, the bottom-left text window
+  // (unrelated to the cascade) shakes instead.
+  const textWindow = document.querySelector('.hero-popup--text .win-window');
   const clones = [...document.querySelectorAll('.hero-error')];
-  if (brandWindow && clones.length) {
-    const revealDelay = 1000;
-    const stagger = 350;
+  if (clones.length) {
+    const revealDelay = 500;
+    const stagger = 175;
     clones.forEach((el, i) => {
       setTimeout(() => el.classList.add('is-visible'), revealDelay + (i + 1) * stagger);
     });
-    const shakeGroup = [brandWindow, ...clones.map(el => el.querySelector('.win-window'))];
-    const shakeAt = revealDelay + (clones.length + 1) * stagger;
-    setTimeout(() => {
-      shakeGroup.forEach(win => {
-        win.classList.add('is-shaking');
-        win.addEventListener('animationend', () => win.classList.remove('is-shaking'), { once: true });
-      });
-    }, shakeAt);
+    if (textWindow) {
+      const shakeAt = revealDelay + (clones.length + 1) * stagger;
+      setTimeout(() => {
+        textWindow.classList.add('is-shaking');
+        textWindow.addEventListener('animationend', () => textWindow.classList.remove('is-shaking'), { once: true });
+      }, shakeAt);
+    }
 
     clones.forEach(el => {
       const dismissBtn = el.querySelector('[data-dismiss]');
