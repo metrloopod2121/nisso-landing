@@ -25,8 +25,8 @@
   --radius-sm: 3px;
 
   --taskbar-h: 56px;
-  --safe-bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
-  --taskbar-total-h: calc(var(--taskbar-h) + var(--safe-bottom));
+  --safe-top: env(safe-area-inset-top, 0px);
+  --taskbar-total-h: calc(var(--taskbar-h) + var(--safe-top));
 
   --font-body: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
   --font-serif: 'IBM Plex Mono', 'Consolas', 'Courier New', monospace;
@@ -40,7 +40,7 @@ body{
   color: var(--ink);
   background: var(--paper-soft);
   -webkit-font-smoothing: antialiased;
-  padding-bottom: var(--taskbar-total-h);
+  padding-top: var(--taskbar-total-h);
 }
 img{ max-width: 100%; display: block; }
 a{ color: inherit; }
@@ -500,17 +500,17 @@ h1, h2, h3, p, dl{ margin: 0; }
 /* ===================== TASKBAR ===================== */
 .xp-taskbar{
   position: fixed;
-  left: 0; right: 0; bottom: 0;
+  left: 0; right: 0; top: 0;
   z-index: 450;
   height: var(--taskbar-total-h);
-  padding-bottom: var(--safe-bottom);
+  padding-top: var(--safe-top);
   display: flex;
   align-items: stretch;
   background:
     linear-gradient(180deg, rgba(255,255,255,.25) 0%, rgba(255,255,255,0) 30%),
     linear-gradient(180deg, #1a3fe0 0%, var(--blue-royal) 45%, #0000c8 60%, var(--blue-void) 100%);
-  border-top: 1px solid #6d8dff;
-  box-shadow: 0 -2px 8px rgba(0,0,30,.35);
+  border-bottom: 1px solid #6d8dff;
+  box-shadow: 0 2px 8px rgba(0,0,30,.35);
 }
 .xp-start{
   display: flex;
@@ -576,8 +576,9 @@ h1, h2, h3, p, dl{ margin: 0; }
 .start-menu{
   position: fixed;
   left: 3px;
-  bottom: calc(var(--taskbar-total-h) + 4px);
+  top: calc(var(--taskbar-total-h) + 4px);
   max-height: calc(100vh - var(--taskbar-total-h) - 20px);
+  overflow-x: hidden;
   overflow-y: auto;
   z-index: 450;
   width: 240px;
@@ -585,7 +586,6 @@ h1, h2, h3, p, dl{ margin: 0; }
   border: 1px solid var(--blue-void);
   border-radius: var(--radius-win) var(--radius-win) var(--radius-sm) var(--radius-sm);
   box-shadow: 6px 6px 0 rgba(0,0,40,.18), 0 4px 16px rgba(0,0,30,.3);
-  overflow: hidden;
   display: none;
   flex-direction: column;
   padding: 8px;
