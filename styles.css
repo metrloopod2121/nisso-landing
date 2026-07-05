@@ -255,6 +255,18 @@ h1, h2, h3, p, dl{ margin: 0; }
 .hero-popup--brand{ top: 32px; right: 32px; }
 .hero-popup--text{ bottom: 32px; left: 32px; }
 
+/* cascading duplicate VISION popups: identical to the brand popup, spawn from behind it */
+.hero-error{
+  z-index: 4;
+  opacity: 0;
+  transform: scale(.85) translateY(-14px);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+}
+.hero-error.is-visible{ opacity: 1; transform: none; pointer-events: auto; }
+.hero-error--1{ top: 84px; right: 84px; }
+.hero-error--2{ top: 136px; right: 136px; }
+
 .hero-eyebrow{
   font-size: 12.5px;
   font-weight: 700;
@@ -610,14 +622,19 @@ h1, h2, h3, p, dl{ margin: 0; }
 
 @media (max-width: 720px){
   .hero{ height: 88vh; min-height: 560px; }
-  .hero-popup{ width: 78vw; }
-  .hero-popup--brand{ top: 20px; right: 20px; }
-  .hero-popup--text{ bottom: 20px; left: 20px; }
-  .hero-wordmark{ font-size: clamp(32px, 11vw, 48px); }
+  .hero-popup{ width: 58vw; }
+  .hero-popup .win-body{ padding: 14px 16px; }
+  .hero-popup--brand{ top: 16px; right: 16px; }
+  .hero-popup--text{ bottom: 16px; left: 16px; }
+  .hero-wordmark{ font-size: clamp(22px, 8vw, 32px); }
+  .hero-eyebrow{ font-size: 10.5px; margin-bottom: 6px; }
+  .hero-tagline{ font-size: 13px; }
   .hero-bar-inner{ flex-direction: column; align-items: stretch; text-align: center; }
   .section{ padding: 64px 0; }
   .win-body{ padding: 22px; }
   .props-row{ grid-template-columns: 1fr; gap: 4px; }
   .xp-start{ padding: 0 12px; }
   .xp-tray{ padding: 0 10px; }
+  .hero-error--1{ top: 50px; right: 44px; }
+  .hero-error--2{ top: 84px; right: 72px; }
 }
