@@ -230,77 +230,74 @@ h1, h2, h3, p, dl{ margin: 0; }
 /* ===================== HERO ===================== */
 .hero{
   position: relative;
-  height: 86vh;
-  min-height: 580px;
-  max-height: 900px;
-  overflow: hidden;
-}
-.hero::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(5,7,15,.58) 0%, rgba(5,7,15,.22) 34%, rgba(5,7,15,0) 68%);
-  pointer-events: none;
+  min-height: 100vh;
+  background: #000;
+  overflow: visible;
+  padding: clamp(58px, 7vw, 88px) 32px clamp(72px, 8vw, 108px);
 }
 .hero-photo{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: min(88%, 560px);
+  height: auto;
+  aspect-ratio: 16/10.2;
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center center;
+  margin: 34px auto 0;
 }
 
 .hero-copy{
   position: relative;
-  z-index: 1;
-  width: min(540px, calc(100% - 48px));
-  min-height: 100%;
-  margin-left: clamp(24px, 6vw, 80px);
-  padding: 120px 0 56px;
+  width: min(600px, 100%);
+  min-height: 0;
+  margin: 0 auto;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   color: #fff;
-  text-shadow: 0 2px 18px rgba(0,0,0,.45);
+  text-shadow: none;
 }
 .hero-copy h1{
-  margin: 0 0 14px;
-  font-size: clamp(48px, 7vw, 96px);
+  margin: 0 0 26px;
+  color: var(--blue-royal);
+  font-size: clamp(74px, 9.4vw, 118px);
   line-height: .9;
   font-weight: 700;
-  letter-spacing: .04em;
+  letter-spacing: 0;
 }
 .hero-lead{
-  max-width: 520px;
+  max-width: 540px;
   margin: 0;
-  font-size: clamp(18px, 1.85vw, 25px);
+  font-size: clamp(20px, 2.1vw, 28px);
   line-height: 1.28;
   font-weight: 600;
 }
 .hero-sublead{
-  max-width: 500px;
-  margin: 14px 0 0;
-  font-size: clamp(14px, 1.15vw, 16px);
-  line-height: 1.48;
-  color: rgba(255,255,255,.86);
+  max-width: 580px;
+  margin: 58px 0 0;
+  font-size: clamp(22px, 2.35vw, 32px);
+  line-height: 1.22;
+  color: #fff;
 }
 .hero-actions{
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 22px;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: min(500px, 100%);
+  margin: 74px auto 0;
 }
 .hero-actions .btn-xp{
+  width: 100%;
   text-decoration: none;
   text-shadow: none;
 }
 .hero-secondary{
-  background: rgba(255,255,255,.92);
-  border-color: #fff;
+  background: #f4f4f4;
+  border-color: #c7c7c7;
   color: var(--blue-royal);
+  background-image: none;
 }
-.hero-secondary:hover{ background: #fff; }
+.hero-secondary:hover{ background: #fff; border-color: #fff; }
 
 .hero-tagline{
   font-size: 15.5px;
@@ -641,46 +638,37 @@ h1, h2, h3, p, dl{ margin: 0; }
 
 @media (max-width: 720px){
   .hero{
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    overflow: visible;
-    background: var(--blue-void);
+    min-height: 100vh;
+    padding: 50px clamp(28px, 8.5vw, 62px) 76px;
   }
-  .hero::after{ display: none; }
   .hero-photo{
-    position: relative;
-    height: auto;
-    aspect-ratio: 16/11;
-    object-position: center center;
+    aspect-ratio: 16/10.6;
+    width: 88%;
+    margin-top: 32px;
   }
   .hero-copy{
-    min-height: 0;
-    width: calc(100% - 32px);
-    margin: 0 auto;
-    padding: 26px 0 32px;
-    text-shadow: none;
+    width: 100%;
   }
   .hero-copy h1{
-    font-size: clamp(42px, 16vw, 64px);
-    margin-bottom: 12px;
+    font-size: clamp(56px, 18vw, 84px);
+    margin-bottom: 22px;
   }
   .hero-lead{
-    font-size: 18px;
-    line-height: 1.32;
+    font-size: clamp(18px, 5.6vw, 22px);
+    line-height: 1.25;
   }
   .hero-sublead{
-    font-size: 14px;
-    line-height: 1.48;
-    margin-top: 12px;
+    font-size: clamp(22px, 6.3vw, 28px);
+    line-height: 1.18;
+    margin-top: 54px;
   }
-  .hero-actions{ gap: 10px; margin-top: 20px; }
+  .hero-actions{ gap: 28px; margin-top: 64px; }
   .hero-actions .btn-xp{
     width: 100%;
-    min-height: 50px;
+    min-height: 68px;
     height: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 14px 18px;
+    font-size: 17px;
     text-align: center;
   }
   .hero-tagline{ font-size: 13px; }
