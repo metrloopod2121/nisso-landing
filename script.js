@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setActiveTask();
 
   // Window controls: minimize / restore / close (shake — content windows don't actually close)
-  document.querySelectorAll('.win-window:not(.win-window--modal):not(.hero-error)').forEach(win => {
+  document.querySelectorAll('.win-window:not(.win-window--modal)').forEach(win => {
     const minBtn = win.querySelector('.win-btn--min');
     const maxBtn = win.querySelector('.win-btn--max');
     const closeBtn = win.querySelector('.win-btn--close');
@@ -77,33 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-
-  // Cascading duplicate VISION windows: the original is already visible, clones pop in
-  // behind/around it one by one. Once the cascade settles, the bottom-left text window
-  // (unrelated to the cascade) shakes instead.
-  const textWindow = document.querySelector('.hero-popup--text .win-window');
-  const clones = [...document.querySelectorAll('.hero-error')];
-  if (clones.length) {
-    const revealDelay = 500;
-    const stagger = 175;
-    clones.forEach((el, i) => {
-      setTimeout(() => el.classList.add('is-visible'), revealDelay + (i + 1) * stagger);
-    });
-    if (textWindow) {
-      const shakeAt = revealDelay + (clones.length + 1) * stagger;
-      setTimeout(() => {
-        textWindow.classList.add('is-shaking');
-        textWindow.addEventListener('animationend', () => textWindow.classList.remove('is-shaking'), { once: true });
-      }, shakeAt);
-    }
-
-    clones.forEach(el => {
-      const dismissBtn = el.querySelector('[data-dismiss]');
-      if (dismissBtn) {
-        dismissBtn.addEventListener('click', () => el.classList.remove('is-visible'));
-      }
-    });
-  }
 
   // Modal close button actually closes the modal
   document.getElementById('modalClose').addEventListener('click', () => {
