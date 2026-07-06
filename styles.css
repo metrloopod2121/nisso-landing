@@ -93,6 +93,7 @@ h1, h2, h3, p, dl{ margin: 0; }
   max-width: 640px;
   margin-bottom: 32px;
 }
+.section-lead p + p{ margin-top: 14px; }
 
 .brand{
   display: flex;
