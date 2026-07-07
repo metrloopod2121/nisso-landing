@@ -102,13 +102,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // CTA modal (placeholder — real signup action to be wired later)
+  // CTA: copy prepared Telegram message and open the chat.
   const overlay = document.getElementById('modalOverlay');
-  const openModal = () => overlay.classList.add('is-open');
   const closeModal = () => overlay.classList.remove('is-open');
+  const telegramUrl = 'https://t.me/vision_nz';
+  const signupMessage = 'Ниссо, привет 💙 я с сайта. меня зовут ___. хочу присоединиться к VISION за 55 000 ₽. пришли, пожалуйста, реквизиты для оплаты.';
+  const copySignupMessage = async () => {
+    try {
+      await navigator.clipboard.writeText(signupMessage);
+    } catch {
+      const textarea = document.createElement('textarea');
+      textarea.value = signupMessage;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      textarea.remove();
+    }
+  };
 
   document.querySelectorAll('[data-cta]').forEach(btn => {
-    btn.addEventListener('click', openModal);
+    btn.addEventListener('click', () => {
+      copySignupMessage();
+      window.open(telegramUrl, '_blank', 'noopener');
+    });
   });
   document.getElementById('modalOk').addEventListener('click', closeModal);
   overlay.addEventListener('click', (e) => {
