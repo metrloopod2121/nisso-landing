@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateClock, 15000);
 
   // Active taskbar task follows scroll position
-  const sections = ['#top', '#program', '#format', '#faq']
+  const sections = ['#top', '#program', '#faq']
     .map(id => document.querySelector(id))
     .filter(Boolean);
   const tasks = [...document.querySelectorAll('.xp-task')];
