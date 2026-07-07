@@ -555,28 +555,6 @@ h1, h2, h3, p, dl{ margin: 0; }
   min-height: 58px;
 }
 
-/* ===================== FINAL CTA ===================== */
-.cta-final{ padding-bottom: 120px; }
-.win-window--cta{ border-color: var(--blue-void); }
-.win-window--cta .win-body{ background: var(--blue-deep); }
-.cta-final-body{
-  text-align: center;
-  padding: 56px 32px;
-}
-.cta-final-body h2{
-  font-family: var(--font-serif);
-  color: #fff;
-  font-size: clamp(26px, 3.2vw, 34px);
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.cta-final-body p{
-  font-size: 16px;
-  color: #aab2de;
-  margin-bottom: 28px;
-}
-.cta-final-body .btn-xp--primary:hover{ background: linear-gradient(180deg, #8199ff 0%, #3646ff 45%, #1c2fff 50%, #4d5eff 100%); }
-
 /* ===================== FOOTER ===================== */
 .footer{ background: var(--blue-deep); color: #c7cdf5; padding: 40px 0; }
 .footer-inner{
