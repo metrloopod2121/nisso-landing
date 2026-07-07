@@ -553,10 +553,27 @@ h1, h2, h3, p, dl{ margin: 0; }
   transition: max-height .25s ease;
 }
 .faq-a p{
-  padding: 0 24px 22px;
+  padding: 0 24px 16px;
   font-size: 14.5px;
   line-height: 1.6;
   color: var(--ink-soft);
+}
+.faq-a p:last-child{ padding-bottom: 22px; }
+.faq-a ul{
+  margin: -4px 24px 16px 44px;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.faq-cta{
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+.faq-cta .btn-xp{
+  width: min(460px, 100%);
+  min-height: 58px;
 }
 
 /* ===================== FINAL CTA ===================== */
