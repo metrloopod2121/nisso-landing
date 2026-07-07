@@ -353,6 +353,11 @@ h1, h2, h3, p, dl{ margin: 0; }
   color: var(--ink-soft);
 }
 .mission-block p + p{ margin-top: 12px; }
+.mission-cta{
+  align-self: flex-start;
+  min-width: min(100%, 320px);
+  margin-top: 2px;
+}
 
 .about-grid{
   display: grid;
@@ -783,6 +788,12 @@ h1, h2, h3, p, dl{ margin: 0; }
     height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
+    text-align: center;
+  }
+  .mission-cta{
+    width: 100%;
+    min-height: 52px;
+    height: auto;
     text-align: center;
   }
   .props-row{ grid-template-columns: 1fr; gap: 4px; }
