@@ -287,25 +287,34 @@ h1, h2, h3, p, dl{ margin: 0; }
 .hero-info-window{
   width: min(660px, 100%);
   margin: 34px auto 0;
-  padding: 16px;
-  border: 1px solid rgba(32, 61, 255, .82);
+  overflow: hidden;
+  border: 1px solid #0c1020;
   border-radius: 7px;
-  background: rgba(12, 12, 16, .92);
+  background: #f7f7f7;
   box-shadow: 0 0 34px rgba(32, 61, 255, .26);
+}
+.hero-info-window .win-titlebar{
+  min-height: 30px;
+  height: 30px;
+  text-align: left;
+}
+.hero-info-note{
+  padding: 18px;
+  background: #fbfbfb;
+  color: var(--ink);
 }
 .hero-price{
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 10px 12px 16px;
-  border-bottom: 1px solid rgba(255,255,255,.16);
-  color: rgba(255,255,255,.92);
-  font-size: 15px;
+  padding: 4px 8px 16px;
+  border-bottom: 1px solid #c8cce0;
+  color: var(--ink);
+  font-size: 14.5px;
   line-height: 1.45;
   text-align: center;
 }
-.hero-price b{ color: #fff; font-size: 1.1em; }
 .hero-info{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -316,9 +325,9 @@ h1, h2, h3, p, dl{ margin: 0; }
 }
 .hero-info div{
   padding: 14px 16px;
-  border: 1px solid rgba(255,255,255,.22);
-  border-radius: 7px;
-  background: rgba(255,255,255,.07);
+  border: 1px solid #c8cce0;
+  border-radius: 0;
+  background: #fff;
 }
 .hero-info span{
   display: block;
@@ -330,7 +339,7 @@ h1, h2, h3, p, dl{ margin: 0; }
   text-transform: uppercase;
 }
 .hero-info p{
-  color: rgba(255,255,255,.9);
+  color: var(--ink-soft);
   font-size: 13.5px;
   line-height: 1.45;
 }
@@ -551,12 +560,21 @@ h1, h2, h3, p, dl{ margin: 0; }
 }
 .faq-cta{
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 14px;
   margin-top: 34px;
 }
 .faq-cta .btn-xp{
   width: min(460px, 100%);
   min-height: 58px;
+}
+.faq-question-link{
+  background: #fff;
+  color: var(--blue-royal);
+  text-decoration: none;
+  background-image: none;
 }
 
 /* ===================== FOOTER ===================== */
@@ -778,8 +796,8 @@ h1, h2, h3, p, dl{ margin: 0; }
   }
   .hero-info-window{
     margin-top: 28px;
-    padding: 12px;
   }
+  .hero-info-note{ padding: 12px; }
   .hero-info{
     margin-top: 18px;
     gap: 10px;
