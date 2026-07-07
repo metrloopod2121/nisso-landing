@@ -102,37 +102,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // CTA: copy prepared Telegram message and open the chat.
+  // CTA: open Telegram with prepared message.
   const overlay = document.getElementById('modalOverlay');
   const closeModal = () => overlay.classList.remove('is-open');
-  const telegramUrl = 'https://t.me/vision_nz';
-  const signupMessage = 'Ниссо, привет 💙 я с сайта. меня зовут ___. хочу присоединиться к VISION за 55 000 ₽. пришли, пожалуйста, реквизиты для оплаты.';
-  const copySignupMessage = async () => {
-    try {
-      await navigator.clipboard.writeText(signupMessage);
-      return true;
-    } catch {
-      const textarea = document.createElement('textarea');
-      textarea.value = signupMessage;
-      textarea.setAttribute('readonly', '');
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
-      const copied = document.execCommand('copy');
-      textarea.remove();
-      return copied;
-    }
-  };
+  const telegramUrl = 'https://t.me/vision_nz?text=%D0%9D%D0%B8%D1%81%D1%81%D0%BE%2C%20%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82%20%F0%9F%92%99%20%D1%8F%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0.%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%BE%D0%B2%D1%83%D1%82%20___.%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%B8%D1%81%D0%BE%D0%B5%D0%B4%D0%B8%D0%BD%D0%B8%D1%82%D1%8C%D1%81%D1%8F%20%D0%BA%20VISION%20%D0%B7%D0%B0%2055%20000%20%E2%82%BD.%20%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D1%80%D0%B5%D0%BA%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D1%8B.';
 
   document.querySelectorAll('[data-cta]').forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const copied = await copySignupMessage();
-      if (copied) {
-        window.alert('Текст заявки скопирован. Сейчас откроется Telegram — вставь сообщение в чат и заполни имя.');
-      } else {
-        window.prompt('Скопируй текст заявки и отправь его в Telegram:', signupMessage);
-      }
+    btn.addEventListener('click', () => {
       window.location.href = telegramUrl;
     });
   });
