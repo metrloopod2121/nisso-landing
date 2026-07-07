@@ -375,6 +375,14 @@ h1, h2, h3, p, dl{ margin: 0; }
 }
 
 /* ===================== MODULES ===================== */
+.program-intro{
+  max-width: 760px;
+  margin: -30px auto 44px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
 .modules{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -393,9 +401,74 @@ h1, h2, h3, p, dl{ margin: 0; }
   line-height: 1.55;
   color: var(--ink-soft);
 }
+.module-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.module-list li{
+  position: relative;
+  padding-left: 18px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.module-list li::before{
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--blue-royal);
+  font-weight: 700;
+}
+.module-result{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.module-result b{ color: var(--blue-royal); }
+.program-note{
+  margin-top: 14px;
+  color: var(--ink);
+}
 .module .win-titlebar .win-icon{
   font-size: 13px;
   min-width: 22px;
+}
+.program-final{
+  max-width: 860px;
+  margin: 32px auto 0;
+}
+.program-final .win-body{
+  text-align: center;
+  padding: 36px 32px;
+}
+.program-final p{
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.program-final h3{
+  margin: 26px 0 0;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.program-actions{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+.program-actions .btn-xp{
+  text-decoration: none;
+  min-width: min(100%, 260px);
+}
+.program-secondary{
+  background: #fff;
+  color: var(--blue-royal);
 }
 
 /* ===================== FORMAT / PRICE ===================== */
@@ -703,6 +776,15 @@ h1, h2, h3, p, dl{ margin: 0; }
   .hero-bar-inner{ flex-direction: column; align-items: stretch; text-align: center; }
   .section{ padding: 64px 0; }
   .win-body{ padding: 22px; }
+  .program-final .win-body{ padding: 28px 22px; }
+  .program-actions .btn-xp{
+    width: 100%;
+    min-height: 52px;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
   .props-row{ grid-template-columns: 1fr; gap: 4px; }
   .xp-start{ padding: 0 12px; }
   .xp-tray{ padding: 0 10px; }
