@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const copySignupMessage = async () => {
     try {
       await navigator.clipboard.writeText(signupMessage);
+      return true;
     } catch {
       const textarea = document.createElement('textarea');
       textarea.value = signupMessage;
@@ -118,15 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
       textarea.style.opacity = '0';
       document.body.appendChild(textarea);
       textarea.select();
-      document.execCommand('copy');
+      const copied = document.execCommand('copy');
       textarea.remove();
+      return copied;
     }
   };
 
   document.querySelectorAll('[data-cta]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      copySignupMessage();
-      window.open(telegramUrl, '_blank', 'noopener');
+    btn.addEventListener('click', async () => {
+      const copied = await copySignupMessage();
+      if (copied) {
+        window.alert('Текст заявки скопирован. Сейчас откроется Telegram — вставь сообщение в чат и заполни имя.');
+      } else {
+        window.prompt('Скопируй текст заявки и отправь его в Telegram:', signupMessage);
+      }
+      window.location.href = telegramUrl;
     });
   });
   document.getElementById('modalOk').addEventListener('click', closeModal);
