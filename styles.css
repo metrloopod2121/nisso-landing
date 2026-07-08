@@ -830,6 +830,12 @@ h1, h2, h3, p, dl{ margin: 0; }
     height: auto;
     text-align: center;
   }
+  .faq-cta .btn-xp--primary{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: clamp(12px, 3.45vw, 14px);
+    white-space: nowrap;
+  }
   .xp-start{ padding: 0 12px; }
   .xp-tray{ padding: 0 10px; }
   .footer-inner{
